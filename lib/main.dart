@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_localisation/language_selector_icon_button.dart';
 
 void main() {
   runApp(LocalisedApp());
@@ -11,11 +12,7 @@ class LocalisedApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           actions: <Widget>[
-            IconButton(
-                icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ))
+            LanguageSelectorIconButton(),
           ],
           title: Text("Localised App"),
         ),
