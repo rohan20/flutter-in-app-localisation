@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_localisation/app_translations_delegate.dart';
 import 'package:in_app_localisation/language_selector_icon_button.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(LocalisedApp());
@@ -18,6 +20,17 @@ class LocalisedApp extends StatelessWidget {
         ),
         body: Container(),
       ),
+      localizationsDelegates: [
+        const AppTranslationsDelegate(),
+        //provides localised strings
+        GlobalMaterialLocalizations.delegate,
+        //provides RTL support
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("en", ""),
+        const Locale("es", ""),
+      ],
     );
   }
 }
