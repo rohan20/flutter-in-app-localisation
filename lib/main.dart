@@ -7,7 +7,14 @@ void main() {
   runApp(LocalisedApp());
 }
 
-class LocalisedApp extends StatelessWidget {
+class LocalisedApp extends StatefulWidget {
+  @override
+  LocalisedAppState createState() {
+    return new LocalisedAppState();
+  }
+}
+
+class LocalisedAppState extends State<LocalisedApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
