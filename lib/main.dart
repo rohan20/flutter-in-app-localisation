@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_localisation/app_translations_delegate.dart';
+import 'package:in_app_localisation/application.dart';
 import 'package:in_app_localisation/language_selector_icon_button.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -15,6 +16,15 @@ class LocalisedApp extends StatefulWidget {
 }
 
 class LocalisedAppState extends State<LocalisedApp> {
+  AppTranslationsDelegate _newLocaleDelegate;
+
+  @override
+  void initState() {
+    super.initState();
+    _newLocaleDelegate = AppTranslationsDelegate(newLocale: null);
+    application.onLocaleChanged = onLocaleChange;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +38,7 @@ class LocalisedAppState extends State<LocalisedApp> {
         body: Container(),
       ),
       localizationsDelegates: [
-        const AppTranslationsDelegate(),
+        _newLocaleDelegate,
         //provides localised strings
         GlobalMaterialLocalizations.delegate,
         //provides RTL support
@@ -39,5 +49,11 @@ class LocalisedAppState extends State<LocalisedApp> {
         const Locale("es", ""),
       ],
     );
+  }
+
+  void onLocaleChange(Locale locale) {
+    setState(() {
+      _newLocaleDelegate = AppTranslationsDelegate(newLocale: locale);
+    });
   }
 }
