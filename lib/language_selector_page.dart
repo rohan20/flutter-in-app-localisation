@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_localisation/application.dart';
 
 class LanguageSelectorPage extends StatefulWidget {
   @override
@@ -6,7 +7,14 @@ class LanguageSelectorPage extends StatefulWidget {
 }
 
 class _LanguageSelectorPageState extends State<LanguageSelectorPage> {
-  final List<String> languagesList = ["English", "Spanish"];
+  static final List<String> languagesList = application.supportedLanguages;
+  static final List<String> languageCodesList =
+      application.supportedLanguagesCodes;
+
+  final Map<dynamic, dynamic> languagesMap = {
+    languagesList[0]: languageCodesList[0],
+    languagesList[1]: languageCodesList[1],
+  };
 
   @override
   Widget build(BuildContext context) {
