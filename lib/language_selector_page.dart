@@ -41,6 +41,7 @@ class _LanguageSelectorPageState extends State<LanguageSelectorPage> {
     return InkWell(
       onTap: () {
         print(language);
+        application.onLocaleChanged(Locale(languagesMap[language]));
       },
       child: Center(
         child: Padding(
