@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_localisation/app_translations.dart';
 import 'package:in_app_localisation/application.dart';
 
 class LanguageSelectorPage extends StatefulWidget {
@@ -21,7 +22,9 @@ class _LanguageSelectorPageState extends State<LanguageSelectorPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Select Language"),
+          title: Text(
+            AppTranslations.of(context).text("title_select_language"),
+          ),
         ),
         body: _buildLanguagesList(),
       ),
