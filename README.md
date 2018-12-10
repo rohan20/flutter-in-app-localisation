@@ -1,8 +1,3 @@
-# in_app_localisation
+# In App Localisation
 
-A new Flutter project.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+Changing the locale of your Flutter app. Independent of the user's system selected langugage.
